@@ -3,6 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ .Values.persistentVolume.data.name }}
+  namespace: {{ .Values.metadata.namespace }}
 spec:
 {{- if .Values.persistentVolume.data.storageClass }}
 {{- if (eq "-" .Values.persistentVolume.data.storageClass) }}
@@ -11,9 +12,9 @@ spec:
   storageClassName: {{ .Values.persistentVolume.data.storageClass }}
 {{- end }}
 {{- end }}
-  selector:
-    matchLabels:
-      name: {{ .Values.persistentVolume.data.name }}
+#  selector:
+#    matchLabels:
+#      name: {{ .Values.persistentVolume.data.name }}
   accessModes:
     - {{ .Values.persistentVolume.data.accessModes }}
   resources:

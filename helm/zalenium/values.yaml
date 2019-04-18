@@ -11,6 +11,8 @@ image:
   tag: 3
   pullPolicy: IfNotPresent
 
+metadata:
+  namespace: digipita-test
 nameOverride: ""
 fullnameOverride: ""
 
@@ -44,8 +46,8 @@ kubernetes:
 
 # zalenium config
 zalenium:
-  desiredContainers: "2"
-  maxDockerSeleniumContainers: "4"
+  desiredContainers: "1"
+  maxDockerSeleniumContainers: "2"
   sauceLabsEnabled: "false"
   browserStackEnabled: "false"
   testingBotEnabled: "false"
@@ -85,12 +87,14 @@ persistentVolume:
     name: zalenium-data
     accessModes: ReadWriteMany
     size: 2Gi
-    storageClass: hostpath
+#    storageClass: hostpath
+    storageClass: "aws-efs"
   mounted:
     name: zalenium-mounted
     accessModes: ReadWriteMany
     size: 2Gi
-    storageClass: hostpath
+#    storageClass: hostpath
+    storageClass: "aws-efs"
 
 # livenessProbe. if you don't want livnessProbe, you should comment out following section.
 livenessProbe:

@@ -4,6 +4,7 @@ metadata:
   name: {{ template "zalenium.fullname" . }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  namespace: {{ .Values.metadata.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
