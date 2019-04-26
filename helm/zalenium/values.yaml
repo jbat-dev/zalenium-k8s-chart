@@ -30,18 +30,18 @@ service:
 # resource & limit
 resources:
   limits:
-    cpu: 250m
-    memory: 400Mi
+    cpu: 1
+    memory: 2Gi
   requests:
-    cpu: 250m
-    memory: 400Mi
+    cpu: 1
+    memory: 2Gi
 
 # related resource & limit
 kubernetes:
-  cpu_request: "250m"
-  cpu_limit: "500m"
-  memory_request: "500Mi"
-  memory_limit: "1Gi"
+  cpu_request: "1"
+  cpu_limit: "2"
+  memory_request: "2Gi"
+  memory_limit: "2Gi"
   override_wait_time: "5m"
 
 # zalenium config
